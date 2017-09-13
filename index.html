@@ -39,13 +39,13 @@
       #map {
         width: 50%;
         height: 50%;
-        float: right;
+        float: left;
         background-color: red;
       }
       #result {
         width: 50%;
         height: 50%;
-        float: left;
+        float: right;
         position: relative;
         background-color: green;
       }
@@ -75,12 +75,17 @@
       function initPano() {
         var panorama = new google.maps.StreetViewPanorama(
             document.getElementById('pano'), {
-              position: {lat: 37.869, lng: -122.255},
+              position: {lat: 39.2904, lng: -76.6122},
               pov: {
                 heading: 270,
                 pitch: 0
               },
               visible: true
+        });
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.2904, lng: -76.6122},
+          zoom: 14
         });
 
         panorama.addListener('pano_changed', function() {
