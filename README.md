@@ -24,3 +24,4 @@ Be sure to have your API key.
 
 	*9/13/2017 - Inital commit
 	*9/13/2017 - Added attribution to README.md
+	*9/13/2017 - Removed superfluous link to API script to remove warning
