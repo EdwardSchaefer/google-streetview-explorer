@@ -60,7 +60,6 @@
       <tr>
         <td><b>Pano ID</b></td><td id="pano-cell">&nbsp;</td>
       </tr>
-      <table id="links_table"></table>
     </table>
     </div>
     <script>
@@ -78,24 +77,6 @@
         panorama.addListener('pano_changed', function() {
             var panoCell = document.getElementById('pano-cell');
             panoCell.innerHTML = panorama.getPano();
-        });
-
-        panorama.addListener('links_changed', function() {
-            var linksTable = document.getElementById('links_table');
-            while (linksTable.hasChildNodes()) {
-              linksTable.removeChild(linksTable.lastChild);
-            }
-            var links = panorama.getLinks();
-            for (var i in links) {
-              var row = document.createElement('tr');
-              linksTable.appendChild(row);
-              var labelCell = document.createElement('td');
-              labelCell.innerHTML = '<b>Link: ' + i + '</b>';
-              var valueCell = document.createElement('td');
-              valueCell.innerHTML = links[i].description;
-              linksTable.appendChild(labelCell);
-              linksTable.appendChild(valueCell);
-            }
         });
 
         panorama.addListener('position_changed', function() {
