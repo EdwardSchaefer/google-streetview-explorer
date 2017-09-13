@@ -26,3 +26,4 @@ Be sure to have your API key.
 	*9/13/2017 - Added attribution to README.md
 	*9/13/2017 - Removed superfluous link to API script to remove warning
 	*9/13/2017 - Removed code and HTML for links table
+	*9/13/2017 - Edited CSS styling for new windows
