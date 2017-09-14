@@ -67,6 +67,9 @@
       <tr>
         <td><b>Pano ID</b></td><td id="pano-cell">&nbsp;</td>
       </tr>
+      <tr>
+        <td><b>Static Streeview URL</b></td><td id="svURL-cell">&nbsp;</td>
+      </tr>
     </table>
     </div>
     <div id="map"></div>
@@ -101,8 +104,13 @@
         panorama.addListener('pov_changed', function() {
             var headingCell = document.getElementById('heading-cell');
             var pitchCell = document.getElementById('pitch-cell');
+            var lat = panorama.getPosition().lat()
+            var lng = panorama.getPosition().lng()
+            var formattedPosition = lat.toString() + ',' + lng.toString();
+            var svURLCell = document.getElementById('svURL-cell');
             headingCell.firstChild.nodeValue = panorama.getPov().heading + '';
             pitchCell.firstChild.nodeValue = panorama.getPov().pitch + '';
+            svURLCell.firstChild.nodeValue = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + formattedPosition + '&fov=30&' + 'heading=' + panorama.getPov().heading + '&pitch=' + panorama.getPov().pitch + '&key=AIzaSyCx71lyXw1WF_HmvorENMpOSUI1nn9irzI';
         });
       map.setStreetView(panorama);
       }
