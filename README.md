@@ -30,3 +30,4 @@ Be sure to have your API key.
 	*9/13/2017 - Added map element, initialized map and panorama to Baltimore
 	*9/13/2017 - Added code to synchronize map and panorama
 	*9/13/2017 - Added code to dynamically generate static streetview URL
+	*9/15/2017 - Rounded lat/lng pairs to 7 decimals
