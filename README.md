@@ -28,6 +28,7 @@ Be sure to have your API key.
 	*9/13/2017 - Removed code and HTML for links table
 	*9/13/2017 - Edited CSS styling for new windows
 	*9/13/2017 - Added map element, initialized map and panorama to Baltimore
-	*9/13/2017 - Added code to synchronize map and panorama
-	*9/13/2017 - Added code to dynamically generate static streetview URL
+	*9/13/2017 - Synchronize map and panorama
+	*9/13/2017 - Static streetview URL dyncamically generated
 	*9/15/2017 - Rounded lat/lng pairs to 7 decimals
+	*9/19/2017 - Added preview window img element

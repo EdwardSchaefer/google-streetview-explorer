@@ -68,15 +68,14 @@
         <td><b>Pano ID</b></td><td id="pano-cell">&nbsp;</td>
       </tr>
       <tr>
-        <td><button onclick="copyToClipboard('#p1')">Copy TEXT 1</button>
-      </tr>
-      <tr>
         <td><b>Static Streeview URL</b></td><td id="svURL-cell">&nbsp;</td>
       </tr>
     </table>
     </div>
     <div id="map"></div>
-    <div id="result"></div>
+    <div id="result">
+      <div id="test"></div>
+    </div>
     <script>
       function initPano() {
         var panorama = new google.maps.StreetViewPanorama(
@@ -110,21 +109,14 @@
             var lat = panorama.getPosition().lat();
             var lng = panorama.getPosition().lng();
             var formattedPosition = lat.toFixed(7) + ',' + lng.toFixed(7);
-            console.log(typeof(formattedPosition) + " " + formattedPosition)
             var svURLCell = document.getElementById('svURL-cell');
             headingCell.firstChild.nodeValue = panorama.getPov().heading + '';
             pitchCell.firstChild.nodeValue = panorama.getPov().pitch + '';
             svURLCell.firstChild.nodeValue = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + formattedPosition + '&fov=30&' + 'heading=' + panorama.getPov().heading + '&pitch=' + panorama.getPov().pitch + '&key=AIzaSyCx71lyXw1WF_HmvorENMpOSUI1nn9irzI';
+            document.getElementById('test').innerHTML = '<img src=' + svURLCell.firstChild.nodeValue + '>';
         });
       map.setStreetView(panorama);
       }
-    function copyToClipboard(element) {
-      var $temp = $("<input>");
-      $("body").append($temp);
-      $temp.val($(element).text()).select();
-      document.execCommand("copy");
-      $temp.remove();
-    }
     </script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx71lyXw1WF_HmvorENMpOSUI1nn9irzI&callback=initPano"
