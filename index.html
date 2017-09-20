@@ -56,6 +56,9 @@
     <div id="floating-panel">
     <table>
       <tr>
+        <td><b>Address</b><td id="address-cell"><input type="text" id="address-input"></input><button onclick="goToAddress()">Go</button></td>
+      </tr>
+      <tr>
         <td><b>Position</b></td><td id="position-cell">&nbsp;</td>
       </tr>
       <tr>
@@ -74,9 +77,13 @@
     </div>
     <div id="map"></div>
     <div id="result">
-      <div id="test"></div>
+      <div id="result"></div>
     </div>
     <script>
+      function goToAddress() {
+        var address = document.getElementById("address-input").value;
+        console.log(address);
+      };
       function initPano() {
         var panorama = new google.maps.StreetViewPanorama(
             document.getElementById('pano'), {
@@ -113,7 +120,7 @@
             headingCell.firstChild.nodeValue = panorama.getPov().heading + '';
             pitchCell.firstChild.nodeValue = panorama.getPov().pitch + '';
             svURLCell.firstChild.nodeValue = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + formattedPosition + '&fov=30&' + 'heading=' + panorama.getPov().heading + '&pitch=' + panorama.getPov().pitch + '&key=AIzaSyCx71lyXw1WF_HmvorENMpOSUI1nn9irzI';
-            document.getElementById('test').innerHTML = '<img src=' + svURLCell.firstChild.nodeValue + '>';
+            document.getElementById('result').innerHTML = '<img src=' + svURLCell.firstChild.nodeValue + '>';
         });
       map.setStreetView(panorama);
       }
