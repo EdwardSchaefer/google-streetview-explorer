@@ -81,8 +81,24 @@
     </div>
     <script>
       function goToAddress() {
+        //Get the address from the input box 
         var address = document.getElementById("address-input").value;
+        address = address + ", Baltimore, MD"
         console.log(address);
+        //Define geocoder object to get lat/longs of addresses
+        var geocoder = new google.maps.Geocoder();
+        //Geocode the address
+        geocoder.geocode({'address': address}, function(results, status) {
+          //If it returns a result, modify the data
+          if (status === 'OK') {
+            console.log(results[0].geometry.location.lat())
+            console.log(results[0].geometry.location.lng())
+            map.setCenter(results[0].geometry.location);
+          } else {
+            //If it fails, notify in the console
+            console.log("error: " + status)
+          }
+        });
       };
       function initPano() {
         var panorama = new google.maps.StreetViewPanorama(
@@ -95,7 +111,8 @@
               visible: true
         });
 
-        var map = new google.maps.Map(document.getElementById('map'), {
+        //Global variable
+        map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 39.2904, lng: -76.6122},
           zoom: 14
         });
@@ -123,7 +140,7 @@
             document.getElementById('result').innerHTML = '<img src=' + svURLCell.firstChild.nodeValue + '>';
         });
       map.setStreetView(panorama);
-      }
+      };
     </script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx71lyXw1WF_HmvorENMpOSUI1nn9irzI&callback=initPano"
