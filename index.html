@@ -71,6 +71,9 @@
         <td><b>Pano ID</b></td><td id="pano-cell">&nbsp;</td>
       </tr>
       <tr>
+        <td><b>Zoom Level</b></td><td id="zoom-cell">&nbsp;</td>
+      </tr>
+      <tr>
         <td><b>Static Streeview URL</b></td><td id="svURL-cell">&nbsp;</td>
       </tr>
     </table>
@@ -136,6 +139,8 @@
             var lng = panorama.getPosition().lng();
             var formattedPosition = lat.toFixed(7) + ',' + lng.toFixed(7);
             var svURLCell = document.getElementById('svURL-cell');
+            var zoomCell = document.getElementById('zoom-cell');
+            zoomCell.firstChild.nodeValue = panorama.getZoom(); + '';
             headingCell.firstChild.nodeValue = panorama.getPov().heading + '';
             pitchCell.firstChild.nodeValue = panorama.getPov().pitch + '';
             svURLCell.firstChild.nodeValue = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + formattedPosition + '&fov=30&' + 'heading=' + panorama.getPov().heading + '&pitch=' + panorama.getPov().pitch + '&key=AIzaSyCx71lyXw1WF_HmvorENMpOSUI1nn9irzI';

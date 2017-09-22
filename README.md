@@ -36,3 +36,4 @@ Be sure to have your API key.
 	*9/20/2017 - Modified goToAddress function to geocode address
 	*9/21/2017 - Modified goToAddress function to change panorama position, 
 		globalized some variables
+	*9/22/2017 - Added cell that displays zoom level
