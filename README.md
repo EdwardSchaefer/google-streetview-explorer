@@ -37,3 +37,5 @@ Be sure to have your API key.
 	*9/21/2017 - Modified goToAddress function to change panorama position, 
 		globalized some variables
 	*9/22/2017 - Added cell that displays zoom level
+	*9/23/2017 - Made zoom level of panorama translate to FOV parameter in URL
+	*9/23/2017 - Changed maximum FOV level from 180 to 120

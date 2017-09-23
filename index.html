@@ -140,11 +140,13 @@
             var formattedPosition = lat.toFixed(7) + ',' + lng.toFixed(7);
             var svURLCell = document.getElementById('svURL-cell');
             var zoomCell = document.getElementById('zoom-cell');
-            zoomCell.firstChild.nodeValue = panorama.getZoom(); + '';
+            var fov = 120 / Math.pow(2,panorama.getZoom());
+            zoomCell.firstChild.nodeValue = fov;
             headingCell.firstChild.nodeValue = panorama.getPov().heading + '';
             pitchCell.firstChild.nodeValue = panorama.getPov().pitch + '';
-            svURLCell.firstChild.nodeValue = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + formattedPosition + '&fov=30&' + 'heading=' + panorama.getPov().heading + '&pitch=' + panorama.getPov().pitch + '&key=AIzaSyCx71lyXw1WF_HmvorENMpOSUI1nn9irzI';
+            svURLCell.firstChild.nodeValue = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + formattedPosition + '&fov=' + fov + '&heading=' + panorama.getPov().heading + '&pitch=' + panorama.getPov().pitch + '&key=AIzaSyCx71lyXw1WF_HmvorENMpOSUI1nn9irzI';
             document.getElementById('result').innerHTML = '<img src=' + svURLCell.firstChild.nodeValue + '>';
+            console.log(fov);
         });
       map.setStreetView(panorama);
       };
